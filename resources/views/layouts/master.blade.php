@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="icon" href="/images/logo.png">
+  <link rel="icon" href="/images/favicon.png">
   <title>{{ config('app.name', 'Laravel') }}</title>
   
 
@@ -54,10 +54,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar position-fixed .sidebar-light-light border-right">
     <!-- Brand Logo -->
-    <router-link to="/dashboard" class="brand-link">
-      <img src="{{ asset('/images/logo_totalenergies.webp') }}" alt="The Logo" class="brand-image"
+    <router-link to="/dashboard" class="brand-link p-5">
+      <img src="{{ asset('/images/logo.png') }}" alt="The Logo" class="brand-image"
            style="opacity: .8">
-      <span class="brand-text font-weight-bold uppercase">{{ config('app.name', 'GOT YOUR BACK') }}</span>
+      {{-- <span class="brand-text font-weight-bold uppercase">{{ config('app.name', 'Laravel') }}</span> --}}
     </router-link>
 
     <!-- Sidebar -->
@@ -113,7 +113,7 @@
       <b>Version</b> 3.0.0
     </div> --}}
     {{-- Default to the left --}}
-    <strong>Copyright &copy; 2022 <a href="https://amrytech.com" target="_blank">Amrytech Co</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{date('Y')}} <a href="https://github.com/ngoijr3107" target="_blank">Ngoitech</a>.</strong> All rights reserved.
   </footer>
 </div>
 {{-- ./wrapper --}}
