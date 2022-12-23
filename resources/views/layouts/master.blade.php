@@ -113,7 +113,7 @@
       <b>Version</b> 3.0.0
     </div> --}}
     {{-- Default to the left --}}
-    <strong>Copyright &copy; {{date('Y')}} <a href="https://github.com/ngoijr3107" target="_blank">Ngoitech</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{date('Y')}} <a href="https://github.com/ngoijr3107" target="_blank">TechVilla</a>.</strong> All rights reserved.
   </footer>
 </div>
 {{-- ./wrapper --}}
