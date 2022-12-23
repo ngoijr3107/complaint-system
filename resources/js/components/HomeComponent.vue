@@ -3,31 +3,31 @@
         <div class="container mt-5 p-3">
             <nav class="navbar navbar-light navbar-lg-expand bg-white">
                 <div class="navbrand">
-                    <img src="/images/logo_totalenergies.webp" alt="Logo" height="60">
+                    <img src="/images/logo.png" alt="Logo" height="60">
                 </div>
             </nav>
             <hr style="color: #FF770A;">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3>We Listen/Tunakusikiliza</h3>
+                    <h3>We Listen</h3>
                 </div>
                 <div class="card-body">
                     <form @submit.prevent="createcomplaint()" class="pt-3">
                         <div class="row">
                             <div class="form-group col-lg-6">
-                                <label>Jina kamili/Full Name*</label>
+                                <label>Full Name *</label>
                                 <input v-model="form.fullname" type="text" name="fullname" class="form-control"
                                     :class="{ 'is-invalid': form.errors.has('fullname') }">
                                 <has-error :form="form" field="fullname"></has-error>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Simu/Mobile*</label>
+                                <label>Mobile *</label>
                                 <input v-model="form.phone" type="text" name="phone" class="form-control"
                                     :class="{ 'is-invalid': form.errors.has('phone') }">
                                 <has-error :form="form" field="phone"></has-error>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Mahali pa tukio/Site Location*</label>
+                                <label>Site Location *</label>
                                 <select class="form-control" v-model="form.site_id">
                                     <option value="">Select Site location</option>
                                     <option v-for="site in sites" :key="site.id" :value="site.id">{{ site.site_name }}
@@ -36,7 +36,7 @@
                                 <has-error :form="form" field="site_id"></has-error>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Kitengo/Department*</label>
+                                <label>Department *</label>
                                 <select class="form-control" v-model="form.category_id">
                                     <option value="">Select Department</option>
                                     <option v-for="category in categories" :key="category.id" :value="category.id">{{
@@ -46,26 +46,26 @@
                                 <has-error :form="form" field="category_id"></has-error>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Malalamiko/Complaint*</label>
+                                <label>Complaint *</label>
                                 <textarea v-model="form.complain" type="text" name="complain" class="form-control"
                                     :class="{ 'is-invalid': form.errors.has('complain') }"></textarea>
                                 <has-error :form="form" field="complain"></has-error>
                                 <!-- <span style="color: red; font-size: 13px;"><i>Maximum: 100 characters</i></span> -->
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Maoni/Suggestion</label>
+                                <label>Suggestion</label>
                                 <textarea v-model="form.suggestion" type="text" name="suggestion" class="form-control"
                                     :class="{ 'is-invalid': form.errors.has('suggestion') }"></textarea>
                                 <has-error :form="form" field="suggestion"></has-error>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Ulichopenda/Likes</label>
+                                <label>Likes</label>
                                 <textarea v-model="form.like" type="text" name="like" class="form-control"
                                     :class="{ 'is-invalid': form.errors.has('like') }"></textarea>
                                 <has-error :form="form" field="like"></has-error>
                             </div>
                         </div>
-                        <button class="btn btn-success">Tuma/Submit</button>
+                        <button class="btn btn-success">Send</button>
                     </form>
                 </div>
             </div>
