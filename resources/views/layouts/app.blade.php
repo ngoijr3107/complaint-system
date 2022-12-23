@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="/images/logo_totalenergies.webp">
+    <link rel="icon" href="/images/favicon.png">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
