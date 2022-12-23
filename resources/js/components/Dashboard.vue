@@ -2,14 +2,14 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row ">
-                <div class="col-12 col-sm-6 col-md-3">
+                <div class="col-md-4 col-lg-4 col-sm-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-danger elevation-1"><i class="far fa-comment-alt"></i></span>
+                        <span class="info-box-icon bg-warning elevation-1"><i class="far fa-comment-alt"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Complaints</span>
+                            <span class="info-box-text">All Complaints</span>
                             <span class="info-box-number">
-                                Total: {{ AllComplaints() }}
+                                Total: {{ allComplaints }}
                                 <!-- <small>%</small> -->
                             </span>
                         </div>
@@ -18,14 +18,14 @@
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
-                <div class="col-12 col-sm-6 col-md-3">
+                <div class="col-md-4 col-lg-4 col-sm-12">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-success elevation-1"><i class="fa fa-users"></i></span>
+                        <span class="info-box-icon bg-success elevation-1"><i class="far fa-comment-alt"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Open Complaints</span>
                             <span class="info-box-number">
-                                Total: {{ OpenComplaints() }}</span>
+                                Total: {{ OpenComplaintList }}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -36,32 +36,38 @@
                 <!-- fix for small devices only -->
                 <div class="clearfix hidden-md-up"></div>
 
-                <div class="col-12 col-sm-6 col-md-3">
+                <div class="col-md-4 col-lg-4 col-sm-12">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list-ol"></i></span>
+                        <span class="info-box-icon bg-danger elevation-1"><i class="far fa-comment-alt"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Closed Complaints</span>
-                            <span class="info-box-number">Total: {{ ClosedComplaints() }}</span>
+                            <span class="info-box-number">Total: {{ ClosedComplaintList }}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
-                <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box mb-3">
-                        <span class="info-box-icon bg-warning elevation-1"><i class="far fa-compass"></i></span>
+            </div>
+            <!-- /.row -->
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Sites</span>
-                            <span class="info-box-number">Total: 10</span>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <DepartmentComplaintChart></DepartmentComplaintChart>
                         </div>
-                        <!-- /.info-box-content -->
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
+
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <SiteComplaintChart></SiteComplaintChart>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
 
@@ -72,24 +78,39 @@
 
 <script>
 import axios from 'axios'
+import VueApexCharts from 'vue-apexcharts';
+import DepartmentComplaintChart from './DashboardCharts/DepartmentComplaintChart.vue';
+import SiteComplaintChart from './DashboardCharts/SiteComplaintChart.vue';
 
 export default {
+    components: {
+        VueApexCharts,
+        DepartmentComplaintChart,
+        SiteComplaintChart,
+    },
     data() {
         return {
-            complaints: { $complaints },
-            OpenComplaints: { $OpenComplaints },
-            ClosedComplaints: { $ClosedComplaints},
+            allComplaints: [],
+            OpenComplaintList: [],
+            ClosedComplaintList: [],
         }
     },
     methods: {
+
         AllComplaints() {
-            axios.get('/api/all-complaints');
+            if (this.$gate.isAdminOrUser()) {
+                axios.get('api/all-complaints').then(({ data }) => (this.allComplaints = data.data));
+            }
         },
         OpenComplaints() {
-            axios.get('/api/open-complaints');
+            if (this.$gate.isAdminOrUser()) {
+                axios.get('api/open-complaints').then(({ data }) => (this.OpenComplaintList = data.data));
+            }
         },
         ClosedComplaints() {
-            axios.get('/api/closed-complaints');
+            if (this.$gate.isAdminOrUser()) {
+                axios.get('api/closed-complaints').then(({ data }) => (this.ClosedComplaintList = data.data));
+            }
         }
     },
     mounted() {
