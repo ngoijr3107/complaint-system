@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="icon" href="/images/logo_totalenergies.webp">
+  <link rel="icon" href="/images/logo.png">
   <title>{{ config('app.name', 'Laravel') }}</title>
   
 
