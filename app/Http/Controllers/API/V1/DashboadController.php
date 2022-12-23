@@ -13,14 +13,14 @@ class DashboadController extends BaseController
 {
    public function AllComplaints(){
     $complaints = Complaint::count();
-    return $this->sendResponse('complaints', 'All complaints');
+    return $this->sendResponse($complaints, 'All complaints');
    }
    public function OpenComplaints() {
     $OpenComplaints = Complaint::where('status', '=', 'Open')->count();
-    return $this->sendResponse('complaints', 'OpenComplaints');
+    return $this->sendResponse($OpenComplaints, 'OpenComplaints');
    }
    public function ClosedComplaints() {
     $ClosedComplaints = Complaint::where('status', '=', 'Closed')->count();
-    return $this->sendResponse('complaints', 'ClosedComplaints');
+    return $this->sendResponse($ClosedComplaints, 'ClosedComplaints');
    }
 }
