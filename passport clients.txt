@@ -1,0 +1,8 @@
+laravel-vue-crud-starter
+passport clients id:
+
+Client ID: 1
+Client secret: CBq1ZhpZBoWKcG2OreiRKzJxQl7RaFSIwN3t6W5k
+
+Client ID: 2
+Client secret: 48Matpct0k4HDfW7sGGHTlqXBhQ6xKt2n4wkhtim
