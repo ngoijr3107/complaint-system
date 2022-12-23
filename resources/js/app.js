@@ -9,6 +9,11 @@ require('./bootstrap');
 window.Vue = require('vue');
 import moment from 'moment';
 
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
+
+Vue.component('apexchart', VueApexCharts)
+
 import { Form, HasError, AlertError } from 'vform';
 window.Form = Form;
 
